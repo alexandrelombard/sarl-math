@@ -1,0 +1,69 @@
+/** 
+ * 
+ */
+package io.sarl.math
+
+/** 
+ * Quaternion
+ * @author Alexandre Lombard
+ * 
+ */
+class Quaternion extends Object {
+
+	val w : float
+	val x: float
+	val y: float
+	val z: float
+
+	
+	new(w : float, x : float, y : float, z : float) {
+		this.x = x
+		this.y = y
+		this.z = z
+		this.w = w
+	}
+	
+	def getX {
+		return x
+	}
+	
+	def getY {
+		return y
+	}
+	
+	def getZ {
+		return z
+	}
+	
+	def getW {
+		return w
+	}
+	
+	/**
+	 * Gets the euler angles ads a 23 under the form (ich, yaw)
+	 */
+	def getEulerAngles : Vector3 {
+		
+		// roll (x-axis rotation)
+		val sinr_cosp = 2.0f * (w * x + y * z)
+		val cosr_cosp = 1.0f - 2.0f * (x * x + y * y)
+		val roll = Math.atan2(sinr_cosp, cosr_cosp)
+
+		// pitch (y-axis rotation)
+		val sinp = 2.0f * (w * y - z * x)
+		
+		val pitch =
+			if (Math.abs(sinp) >= 1.0)
+				Math.PI / 2.0 * Math.signum(sinp) // use 90 degrees if out of range
+			else
+				Math.asin(sinp)
+
+		// yaw (z-axis rotation)
+		val siny_cosp = 2.0f * (w * z + x * y);
+		val cosy_cosp = 1.0f - 2.0f * (y * y + z * z);  
+		val yaw = Math.atan2(siny_cosp, cosy_cosp);
+	
+		return new Vector3(roll.floatValue, pitch.floatValue, yaw.floatValue)
+	}
+	
+}
