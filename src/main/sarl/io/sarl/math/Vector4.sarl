@@ -7,16 +7,16 @@ package io.sarl.math
 class Vector4 implements Vector<Vector4> {
 	
 	/** X coordinate */
-	public val x : Float
+	public val x : float
 	/** Y coordinate */
-	public val y : Float
+	public val y : float
 	/** Z coordinate */
-	public val z : Float
+	public val z : float
 	/** T coordinate */
-	public val t : Float
+	public val t : float
 	
-	val squaredNorm: Float
-	val norm: Float
+	val squaredNorm: float
+	val norm: float
 	
 	/**
 	 * Builds a null-vector
@@ -32,7 +32,7 @@ class Vector4 implements Vector<Vector4> {
 	 * @param z the Z coordinate
 	 * @param t the T coordinate
 	 */
-	new (x: Float, y: Float, z: Float, t: Float) {
+	new (x: float, y: float, z: float, t: float) {
 		this.x = x
 		this.y = y
         this.z = z
@@ -47,7 +47,7 @@ class Vector4 implements Vector<Vector4> {
 	 * Getter for X
 	 * @return X
 	 */
-	def getX() : Float {
+	def getX() : float {
 		return this.x
 	}
 
@@ -55,7 +55,7 @@ class Vector4 implements Vector<Vector4> {
 	 * Getter for Y
 	 * @return Y
 	 */
-	def getY() : Float {
+	def getY() : float {
 		return this.y
 	}
 
@@ -63,7 +63,7 @@ class Vector4 implements Vector<Vector4> {
 	 * Getter for Z
 	 * @return Z
 	 */
-	def getZ() : Float {
+	def getZ() : float {
 		return this.z
 	}
 
@@ -71,7 +71,7 @@ class Vector4 implements Vector<Vector4> {
 	 * Getter for T
 	 * @return T
 	 */
-	def getT() : Float {
+	def getT() : float {
 		return this.t
 	}
 
@@ -98,7 +98,7 @@ class Vector4 implements Vector<Vector4> {
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	override operator_multiply(l: Float) : Vector4 {
+	override operator_multiply(l: float) : Vector4 {
 		return new Vector4(x * l, y * l, z * l, t * l)
 	}
 
@@ -107,7 +107,7 @@ class Vector4 implements Vector<Vector4> {
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	override operator_multiply(l : Float, v : Vector4) : Vector4 {
+	override operator_multiply(l : float, v : Vector4) : Vector4 {
 		return new Vector4(v.x * l, v.y * l, v.z * l, v.t * l)
 	}
 	
@@ -123,7 +123,7 @@ class Vector4 implements Vector<Vector4> {
 	 * @param v the other vector
 	 * @return the dot product
 	 */
-    override dot(v: Vector4) : Float {
+    override dot(v: Vector4) : float {
         return x * v.x + y * v.y + z * v.z + t * v.t
     }
 
@@ -131,7 +131,7 @@ class Vector4 implements Vector<Vector4> {
 	 * Gets the squared norm of this vector
 	 * @return the squared norm of this vector
 	 */
-	override squaredNorm() : Float {
+	override squaredNorm() : float {
 		return this.squaredNorm
 	}
 	
@@ -139,7 +139,7 @@ class Vector4 implements Vector<Vector4> {
 	 * Gets the norm of this vector
 	 * @return the norm of this vector
 	 */
-	override norm(): Float {
+	override norm(): float {
 		return this.norm
 	}
 

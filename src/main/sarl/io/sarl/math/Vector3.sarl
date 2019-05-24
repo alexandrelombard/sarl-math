@@ -7,14 +7,14 @@ package io.sarl.math
 class Vector3 implements Vector<Vector3> {
 	
 	/** X coordinate */
-	public val x : Float
+	public val x : float
 	/** Y coordinate */
-	public val y : Float
+	public val y : float
 	/** Z coordinate */
-	public val z : Float
+	public val z : float
 
-	val squaredNorm: Float
-	val norm: Float
+	val squaredNorm: float
+	val norm: float
 
 	/** 
 	 * Builds a null-vector
@@ -37,7 +37,7 @@ class Vector3 implements Vector<Vector3> {
 	 * @param y the Y coordinate
 	 * @param z the Z coordinate
 	 */
-	new (x: Float, y: Float, z: Float) {
+	new (x: float, y: float, z: float) {
 		this.x = x
 		this.y = y
 		this.z = z
@@ -50,7 +50,7 @@ class Vector3 implements Vector<Vector3> {
 	 * Getter for X
 	 * @return X
 	 */
-	def getX(): Float {
+	def getX(): float {
 		return this.x
 	}
 
@@ -58,7 +58,7 @@ class Vector3 implements Vector<Vector3> {
 	 * Getter for Y
 	 * @return Y
 	 */
-	def getY() : Float {
+	def getY() : float {
 		return this.y
 	}
 
@@ -66,7 +66,7 @@ class Vector3 implements Vector<Vector3> {
 	 * Getter for Z
 	 * @return Z
 	 */
-	def getZ() : Float {
+	def getZ() : float {
 		return this.z
 	}
 
@@ -93,7 +93,7 @@ class Vector3 implements Vector<Vector3> {
 	 * @param v the other vector
 	 * @return the dot product
 	 */
-	override dot(v : Vector3) : Float {
+	override dot(v : Vector3) : float {
 		return x * v.x + y * v.y + z * v.z
 	}
 
@@ -120,7 +120,7 @@ class Vector3 implements Vector<Vector3> {
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	override operator_multiply(l : Float) : Vector3 {
+	override operator_multiply(l : float) : Vector3 {
 		return new Vector3(x * l, y * l, z * l)
 	}
 
@@ -129,7 +129,7 @@ class Vector3 implements Vector<Vector3> {
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	override operator_multiply(l : Float, v : Vector3) : Vector3 {
+	override operator_multiply(l : float, v : Vector3) : Vector3 {
 		return new Vector3(v.x * l, v.y * l, v.z * l)
 	}
 	
@@ -144,7 +144,7 @@ class Vector3 implements Vector<Vector3> {
 	 * Gets the squared norm of this vector
 	 * @return the squared norm of this vector
 	 */
-	override squaredNorm() : Float {
+	override squaredNorm() : float {
 		return this.squaredNorm
 	}
 
@@ -152,7 +152,7 @@ class Vector3 implements Vector<Vector3> {
 	 * Gets the norm of this vector
 	 * @return the norm of this vector
 	 */
-	override norm() : Float {
+	override norm() : float {
 		return this.norm
 	}
 

@@ -14,7 +14,7 @@ interface Vector<T extends Vector<T>> {
 	 * Gets the length of this vector (equivalent to norm())
 	 * @return the norm of this vector
 	 */
-	def length() : Float {
+	def length() : float {
 		return this.norm()
 	}
 
@@ -22,13 +22,13 @@ interface Vector<T extends Vector<T>> {
 	 * Gets the squared norm of this vector
 	 * @return the squared norm of this vector
 	 */
-	def squaredNorm() : Float
+	def squaredNorm() : float
 
 	/** 
 	 * Gets the norm of this vector
 	 * @return the norm of this vector
 	 */
-	def norm() : Float {
+	def norm() : float {
 		return Math.sqrt(squaredNorm()).floatValue
 	}
 
@@ -77,7 +77,7 @@ interface Vector<T extends Vector<T>> {
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	def times(l : Float) : T {
+	def times(l : float) : T {
 		return this * l
 	}
 
@@ -86,14 +86,14 @@ interface Vector<T extends Vector<T>> {
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	def operator_multiply(l : Float) : T
+	def operator_multiply(l : float) : T
 
 	/** 
 	 * Operator multiply, computes the product of this vector by a scalar
 	 * @param l the scalar
 	 * @return the product of this by the given scalar
 	 */
-	def operator_multiply(l : Float, v : T) : T
+	def operator_multiply(l : float, v : T) : T
 
 	/** 
 	 * Unary minus operator
@@ -105,5 +105,5 @@ interface Vector<T extends Vector<T>> {
 	 * @param v the other vector
 	 * @return the dot product
 	 */
-	def dot(v : T) : Float
+	def dot(v : T) : float
 }
