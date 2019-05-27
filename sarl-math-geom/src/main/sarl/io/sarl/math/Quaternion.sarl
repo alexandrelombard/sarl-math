@@ -1,0 +1,41 @@
+/** 
+ * 
+ */
+package io.sarl.math
+
+/** 
+ * Quaternion
+ * @author Alexandre Lombard
+ * 
+ */
+class Quaternion extends Object {
+
+	val w : float
+	val x : float
+	val y : float
+	val z : float
+
+	new(w : float, x : float, y : float, z : float) {
+		this.x = x
+		this.y = y
+		this.z = z
+		this.w = w
+	}
+
+	def getX {
+		return x
+	}
+
+	def getY {
+		return y
+	}
+
+	def getZ {
+		return z
+	}
+
+	def getW {
+		return w
+	}
+
+}

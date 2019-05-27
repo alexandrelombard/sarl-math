@@ -1,0 +1,19 @@
+/** 
+ * 
+ */
+package io.sarl.math.extensions
+
+import org.arakhne.afc.math.geometry.d3.d.Vector3d
+
+/** 
+ * Extension methods for Vector3d class
+ * @author Alexandre Lombard
+ * 
+ */
+class Vector3dExtensions extends Object {
+	
+	static def normalized(v: Vector3d) : Vector3d {
+		return v / v.length	
+	}
+	
+}

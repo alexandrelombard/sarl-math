@@ -1,0 +1,33 @@
+/** 
+ * 
+ */
+package io.sarl.math.extensions
+
+import io.sarl.math.Vector4
+import org.arakhne.afc.math.geometry.d3.d.Vector3d
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
+/** 
+ * Vector4 extensions
+ * @author Alexandre Lombard
+ * 
+ */
+class Vector4Extensions extends Object {
+	
+	static def toVector3d(v : Vector4) : Vector3d {
+		return new Vector3d(v.x, v.y, v.z)
+	}
+	
+	static def xyz(v : Vector4) : Vector3d {
+		return toVector3d(v)
+	}
+	
+	static def toVector2d(v : Vector4) : Vector2d {
+		return new Vector2d(v.x, v.y)
+	}
+	
+	static def xy(v : Vector4) : Vector2d {
+		return toVector2d(v)
+	} 
+	
+}

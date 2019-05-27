@@ -1,0 +1,42 @@
+/** 
+ * 
+ */
+package io.sarl.math.extensions
+
+import org.arakhne.afc.math.geometry.d3.d.Vector3d
+import io.sarl.math.Quaternion
+
+/** 
+ * 
+ * @author Alexandre Lombard
+ * 
+ */
+class QuaternionExtensions extends Object {
+	
+	/**
+	 * Gets the Euler angles under the form (roll, pitch, yaw)
+	 */
+	static def getEulerAngles(q : Quaternion) : Vector3d {
+
+		// roll (x-axis rotation)
+		val sinr_cosp = 2.0f * (q.w * q.x + q.y * q.z)
+		val cosr_cosp = 1.0f - 2.0f * (q.x * q.x + q.y * q.y)
+		val roll = Math.atan2(sinr_cosp, cosr_cosp)
+
+		// pitch (y-axis rotation)
+		val sinp = 2.0f * (q.w * q.y - q.z * q.x)
+
+		val pitch = if (Math.abs(sinp) >= 1.0)
+				Math.PI / 2.0 * Math.signum(sinp) // use 90 degrees if out of range
+			else
+				Math.asin(sinp)
+
+		// yaw (z-axis rotation)
+		val siny_cosp = 2.0f * (q.w * q.z + q.x * q.y);
+		val cosy_cosp = 1.0f - 2.0f * (q.y * q.y + q.z * q.z);
+		val yaw = Math.atan2(siny_cosp, cosy_cosp);
+
+		return new Vector3d(roll.floatValue, pitch.floatValue, yaw.floatValue)
+	}
+
+}

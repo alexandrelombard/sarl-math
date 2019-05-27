@@ -1,0 +1,19 @@
+/** 
+ * 
+ */
+package io.sarl.math.extensions
+
+import org.arakhne.afc.math.geometry.d2.d.Vector2d
+
+/** 
+ * Extension methods for Vector3d class
+ * @author Alexandre Lombard
+ * 
+ */
+class Vector2dExtensions extends Object {
+	
+	static def toAngle(v : Vector2d) : double {
+		return Math.atan2(v.y, v.x)
+	}
+	
+}

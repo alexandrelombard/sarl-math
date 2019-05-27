@@ -3,10 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	
-	<groupId>io.sarl.math</groupId>
-	<artifactId>sarl-math</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<parent>
+		<groupId>io.sarl.math</groupId>
+		<artifactId>sarl-math</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>sarl-math-geom</artifactId>
 
 	<properties>
 		<sarl.version>0.10.0-SNAPSHOT</sarl.version>
@@ -21,16 +24,6 @@
 			<version>${sarl.version}</version>
 		</dependency>
 	</dependencies>
-	
-	<dependencyManagement>
-		<dependencies>
-			<dependency>
-				<groupId>org.arakhne.afc.core</groupId>
-				<artifactId>math</artifactId>
-				<version>15.2</version>
-			</dependency>
-		</dependencies>
-	</dependencyManagement>
 
 	<build>
 		<plugins>

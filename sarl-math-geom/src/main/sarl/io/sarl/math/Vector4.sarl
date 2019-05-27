@@ -1,0 +1,154 @@
+package io.sarl.math
+
+/**
+ * Represents a 4D vector (immutable)
+ * @author Alexandre Lombard
+ */
+class Vector4 implements Vector<Vector4> {
+	
+	/** X coordinate */
+	public val x : double
+	/** Y coordinate */
+	public val y : double
+	/** Z coordinate */
+	public val z : double
+	/** T coordinate */
+	public val t : double
+	
+	val squaredNorm : double
+	val norm : double
+	
+	/**
+	 * Builds a null-vector
+	 */
+	new() {
+		this(0.0, 0.0, 0.0, 0.0)
+	}
+	
+	/**
+	 * Builds a vector with the given parameters
+	 * @param x the X coordinate
+	 * @param y the Y coordinate
+	 * @param z the Z coordinate
+	 * @param t the T coordinate
+	 */
+	new (x : double, y : double, z : double, t : double) {
+		this.x = x
+		this.y = y
+        this.z = z
+        this.t = t
+        
+        // Note: The following fields should be lazily initialized 
+		this.squaredNorm = x * x + y * y + z * z + t * t
+		this.norm = Math.sqrt(this.squaredNorm).floatValue
+	}
+
+	/**
+	 * Getter for X
+	 * @return X
+	 */
+	def getX() : double {
+		return this.x
+	}
+
+	/** 
+	 * Getter for Y
+	 * @return Y
+	 */
+	def getY() : double {
+		return this.y
+	}
+
+	/** 
+	 * Getter for Z
+	 * @return Z
+	 */
+	def getZ() : double {
+		return this.z
+	}
+
+	/** 
+	 * Getter for T
+	 * @return T
+	 */
+	def getT() : double {
+		return this.t
+	}
+
+	/** 
+	 * Operator plus, computes the sum of two vectors (this and v)
+	 * @param v the vector to add
+	 * @return the sum of this and v
+	 */
+	override operator_plus(v: Vector4) : Vector4 {
+		return new Vector4(x + v.x, y + v.y, z + v.z, t + v.t)
+	}
+
+	/** 
+	 * Operator minus, computes the difference of two vectors (this and v)
+	 * @param v the vector to subtract
+	 * @return the difference of this and v
+	 */
+	override operator_minus(v: Vector4) : Vector4 {
+		return new Vector4(x - v.x, y - v.y, z - v.z, t - v.t)
+	}
+
+	/** 
+	 * Operator multiply, computes the product of this vector by a scalar
+	 * @param l the scalar
+	 * @return the product of this by the given scalar
+	 */
+	override operator_multiply(l : double) : Vector4 {
+		return new Vector4(x * l, y * l, z * l, t * l)
+	}
+
+	/** 
+	 * Operator multiply, computes the product of this vector by a scalar
+	 * @param l the scalar
+	 * @return the product of this by the given scalar
+	 */
+	override operator_multiply(l : double, v : Vector4) : Vector4 {
+		return new Vector4(v.x * l, v.y * l, v.z * l, v.t * l)
+	}
+	
+	/**
+	 * Unary minus operator
+	 */
+	override operator_minus(): Vector4 {
+		return new Vector4(-x, -y, -z, -t)
+	}
+
+	/**
+	 * Computes the dot product of this vector and v
+	 * @param v the other vector
+	 * @return the dot product
+	 */
+    override dot(v : Vector4) : double {
+        return x * v.x + y * v.y + z * v.z + t * v.t
+    }
+
+	/** 
+	 * Gets the squared norm of this vector
+	 * @return the squared norm of this vector
+	 */
+	override squaredNorm() : double {
+		return this.squaredNorm
+	}
+	
+	/**
+	 * Gets the norm of this vector
+	 * @return the norm of this vector
+	 */
+	override norm() : double {
+		return this.norm
+	}
+
+	/** 
+	 * Gets the String representation of this vector
+	 * @return a String showing the coordinates of this vector 
+	 */
+	override toString() : String {
+		return "[" + x + ", " + y + ", " + z + ", " + t + "]"
+	}
+	
+}
